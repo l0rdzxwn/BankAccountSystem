@@ -1,6 +1,7 @@
-import tkinter
+from tkinter import messagebox
 import tkinter as gui
 from Account import accDetails
+
 
 root = gui.Tk()
 root.geometry("400x500")
@@ -18,11 +19,14 @@ Pin = gui.StringVar()
 def login():
     if accNum.get() or Pin.get():
         if accNum.get() == accDetails.BankAccNum and Pin.get() == accDetails.PIN:
-            print(f"Welcome, {accDetails.Name}!")
+            messagebox.showinfo('Login Successful',f'Welcome to your account, {accDetails.Name}!')
+
         else:
-            print("Incorrect Account Number or PIN")
+            messagebox.showerror('Error','Incorrect account number or pin')
+            accNum.set("")
+            Pin.set("")
     else:
-        print("Please enter a value")
+        messagebox.showerror('Error', 'Please enter a value')
 
 
 
