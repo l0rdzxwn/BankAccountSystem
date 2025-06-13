@@ -20,7 +20,8 @@ def login():
     if accNum.get() or Pin.get():
         if accNum.get() == accDetails.BankAccNum and Pin.get() == accDetails.PIN:
             messagebox.showinfo('Login Successful',f'Welcome to your account, {accDetails.Name}!')
-            bank.run()
+            root.destroy()
+
         else:
             messagebox.showerror('Error','Incorrect account number or pin')
             accNum.set("")
@@ -32,9 +33,10 @@ def login():
 
 ###---LoginGUI---###
 topPad = gui.Label(root,
-                      text="",
-                      font=('Poppins', 2, 'bold'),
-                      pady= 45
+                      text="LOGIN",
+                      font=('Poppins', 28, 'bold'),
+                      pady= 45,
+                      fg='#0ec93a'
 
                       )
 
@@ -84,6 +86,7 @@ login = gui.Button(root,
                    activebackground='white',
                    activeforeground='#0ec93a',
                    )
+
 topPad.grid(row=0,column=0)
 userLabel.grid(row=1, column=0)
 passLabel.grid(row=3,column=0)
@@ -92,7 +95,7 @@ pw.grid(row= 4, column=0)
 spacing.grid(row=5,column=0)
 login.grid(row=6,column=0)
 
-###--- Bank Choice Window ---###
+
 
 
 

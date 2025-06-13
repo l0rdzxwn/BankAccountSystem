@@ -1,4 +1,6 @@
 import tkinter as gui
+import main
+
 
 def run():
     new = gui.Tk()
@@ -6,39 +8,61 @@ def run():
     new.title('Bank')
     new.columnconfigure(0,weight=1)
 
+    ###---BankGUI---###
+
+    title = gui.Label(new,
+                      text='Main Bank',
+                      font=('Poppins', 28,'bold'),
+                      fg='#0ec93a',
+                      pady=47
+                      )
+
     checkBal = gui.Button(new,
                           text='Check Balance',
                           relief = 'flat',
                           bg='#0ec93a',
-                          font=('Poppins', 12, 'bold'),
+                          font=('Poppins', 15, 'bold'),
                           width=13,
                           fg='white',
                           activebackground='white',
-                          activeforeground='#0ec93a',
+                          activeforeground='#0ec93a'
                           )
 
     deposit = gui.Button(new,
                           text='Deposit',
                           relief = 'flat',
                           bg='#0ec93a',
-                          font=('Poppins', 12, 'bold'),
+                          font=('Poppins', 15, 'bold'),
                           width=13,
                           fg='white',
                           activebackground='white',
-                          activeforeground='#0ec93a',
+                          activeforeground='#0ec93a'
                           )
 
     withdraw = gui.Button(new,
                           text='Withdraw',
                           relief = 'flat',
                           bg='#0ec93a',
-                          font=('Poppins', 12, 'bold'),
+                          font=('Poppins', 15, 'bold'),
                           width=13,
                           fg='white',
                           activebackground='white',
-                          activeforeground='#0ec93a',
+                          activeforeground='#0ec93a'
                           )
-    checkBal.grid(row=0,column=0)
-    deposit.grid(row=1,column=0)
-    withdraw.grid(row=2,column=0)
+
+    spacing2 = gui.Label(new,
+                         text="",
+                         font=('Poppins', 2, 'bold')
+                         )
+    spacing3 = gui.Label(new,
+                         text="",
+                         font=('Poppins', 2, 'bold')
+                         )
+
+    title.grid(row=0,column=0)
+    checkBal.grid(row=1,column=0)
+    spacing2.grid(row=2, column=0)
+    deposit.grid(row=3,column=0)
+    spacing3.grid(row=4, column=0)
+    withdraw.grid(row=5,column=0)
     new.mainloop()
