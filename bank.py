@@ -1,5 +1,5 @@
 import tkinter as gui
-import main
+
 
 
 def run():
