@@ -33,7 +33,7 @@ def run():
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
-                          width=13,
+                          width=13, 
                           fg='white',
                           activebackground='white',
                           activeforeground='#0ec93a'

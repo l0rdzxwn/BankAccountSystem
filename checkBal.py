@@ -11,22 +11,47 @@ title = gui.Label(balGui,
                       text='Check Balance',
                       font=('Poppins', 28,'bold'),
                       fg='#0ec93a',
-                      pady=47
+                      pady=20
                       )
 
-symbol = gui.Label(balGui,
-                   text='$',
-                   font=('Poppins',20, 'bold'),
-                   fg='#0ec93a'
-                   )
-
 balance = gui.Label(balGui,
-                    text=accDetails.balance,
-                    font=('Poppins',20, 'bold'),
-                    fg='#0ec93a'
+                    text=f'CASH                ${accDetails.balance}',
+                    font=('Poppins',25, 'bold'),
+                    fg='#0ec93a',
+                    pady=35,
                     )
 
+deposit = gui.Button(balGui,
+                          text='Deposit',
+                          relief = 'flat',
+                          bg='#0ec93a',
+                          font=('Poppins', 15, 'bold'),
+                          width=13,
+                          fg='white',
+                          activebackground='white',
+                          activeforeground='#0ec93a'
+                          )
+
+withdraw = gui.Button(balGui,
+                          text='Withdraw',
+                          relief = 'flat',
+                          bg='#0ec93a',
+                          font=('Poppins', 15, 'bold'),
+                          width=13,
+                          fg='white',
+                          activebackground='white',
+                          activeforeground='#0ec93a'
+                          )
+
+spacing2 = gui.Label(balGui,
+                         text="",
+                         font=('Poppins', 2, 'bold')
+                         )
+
+
 title.grid(row=0,column=0)
-symbol.grid(row=1,column=0)
 balance.grid(row=1,column=0)
+deposit.grid(row=2,column=0)
+spacing2.grid(row=3,column=0)
+withdraw.grid(row=4,column=0)
 balGui.mainloop()
