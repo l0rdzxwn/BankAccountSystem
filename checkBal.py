@@ -17,8 +17,11 @@ title = gui.Label(balGui,
 balance = gui.Label(balGui,
                     text=f'CASH                ${accDetails.balance}',
                     font=('Poppins',25, 'bold'),
-                    fg='#0ec93a',
-                    pady=35,
+                    fg='white',
+                    pady=25,
+                    padx=35,
+                    bg='#0ec93a',
+                    height=1
                     )
 
 deposit = gui.Button(balGui,
@@ -43,6 +46,11 @@ withdraw = gui.Button(balGui,
                           activeforeground='#0ec93a'
                           )
 
+spacing1 = gui.Label(balGui,
+                         text="",
+                         font=('Poppins', 2, 'bold')
+                         )
+
 spacing2 = gui.Label(balGui,
                          text="",
                          font=('Poppins', 2, 'bold')
@@ -51,7 +59,8 @@ spacing2 = gui.Label(balGui,
 
 title.grid(row=0,column=0)
 balance.grid(row=1,column=0)
-deposit.grid(row=2,column=0)
-spacing2.grid(row=3,column=0)
-withdraw.grid(row=4,column=0)
+spacing1.grid(row=2,column=0)
+deposit.grid(row=3,column=0)
+spacing2.grid(row=4,column=0)
+withdraw.grid(row=5,column=0)
 balGui.mainloop()
