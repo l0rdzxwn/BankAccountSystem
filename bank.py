@@ -17,7 +17,7 @@ def run():
                       pady=47
                       )
 
-    checkBal = gui.Button(new,
+    checkbal = gui.Button(new,
                           text='Check Balance',
                           relief = 'flat',
                           bg='#0ec93a',
@@ -33,7 +33,7 @@ def run():
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
-                          width=13, 
+                          width=13,
                           fg='white',
                           activebackground='white',
                           activeforeground='#0ec93a'
@@ -60,7 +60,7 @@ def run():
                          )
 
     title.grid(row=0,column=0)
-    checkBal.grid(row=1,column=0)
+    checkbal.grid(row=1,column=0)
     spacing2.grid(row=2, column=0)
     deposit.grid(row=3,column=0)
     spacing3.grid(row=4, column=0)
