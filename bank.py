@@ -19,6 +19,7 @@ def run():
 
     checkbal = gui.Button(new,
                           text='Check Balance',
+                          command=new.destroy,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
@@ -66,3 +67,5 @@ def run():
     spacing3.grid(row=4, column=0)
     withdraw.grid(row=5,column=0)
     new.mainloop()
+
+run()
