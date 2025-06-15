@@ -1,9 +1,10 @@
 import tkinter as gui
-
+import checkBal
 
 
 def run():
     new = gui.Tk()
+    
     new.geometry('400x500')
     new.title('Bank')
     new.columnconfigure(0,weight=1)
@@ -19,7 +20,7 @@ def run():
 
     checkbal = gui.Button(new,
                           text='Check Balance',
-                          command=new.destroy,
+                          command=checkBal.runCB,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
@@ -68,4 +69,4 @@ def run():
     withdraw.grid(row=5,column=0)
     new.mainloop()
 
-run()
+
