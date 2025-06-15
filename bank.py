@@ -4,7 +4,6 @@ import checkBal
 
 def run():
     new = gui.Tk()
-    
     new.geometry('400x500')
     new.title('Bank')
     new.columnconfigure(0,weight=1)
