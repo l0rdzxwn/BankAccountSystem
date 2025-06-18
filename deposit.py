@@ -1,5 +1,6 @@
 import tkinter as gui
 from Account import accDetails
+import bank
 
 def runDep():
     dep = gui.Tk()
@@ -26,7 +27,8 @@ def runDep():
                         )
 
     backBtn = gui.Button(dep,
-                         text='Deposit',
+                         text='Go Back',
+                         command= bank.run(),
                          relief='flat',
                          bg='#0ec93a',
                          font=('Poppins', 15, 'bold'),
@@ -36,16 +38,7 @@ def runDep():
                          activeforeground='#0ec93a'
                          )
 
-    withdraw = gui.Button(dep,
-                          text='Withdraw',
-                          relief='flat',
-                          bg='#0ec93a',
-                          font=('Poppins', 15, 'bold'),
-                          width=13,
-                          fg='white',
-                          activebackground='white',
-                          activeforeground='#0ec93a'
-                          )
+
 
     spacing1 = gui.Label(dep,
                          text="",
@@ -62,5 +55,6 @@ def runDep():
     spacing1.grid(row=2, column=0)
     backBtn.grid(row=3, column=0)
     spacing2.grid(row=4, column=0)
-    withdraw.grid(row=5, column=0)
     dep.mainloop()
+
+runDep()
