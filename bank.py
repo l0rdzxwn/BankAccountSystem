@@ -68,4 +68,5 @@ def run():
     withdraw.grid(row=5,column=0)
     new.mainloop()
 
+run()
 

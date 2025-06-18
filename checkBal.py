@@ -1,9 +1,7 @@
 import tkinter as gui
 from Account import accDetails
-import bank
 
 def runCB():
-
     balGui = gui.Tk()
     balGui.geometry('400x500')
     balGui.title('Bank')
