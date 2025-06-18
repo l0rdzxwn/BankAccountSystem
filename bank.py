@@ -1,6 +1,6 @@
 import tkinter as gui
 import checkBal
-import deposit
+import depositBank
 
 def run():
     new = gui.Tk()
@@ -31,7 +31,7 @@ def run():
 
     deposit = gui.Button(new,
                           text='Deposit',
-                          command= deposit.runDep,
+                          command= depositBank.runDep,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),

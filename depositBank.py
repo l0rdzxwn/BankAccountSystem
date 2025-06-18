@@ -79,4 +79,3 @@ def runDep():
 
     dep.mainloop()
 
-runDep()
