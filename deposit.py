@@ -6,11 +6,11 @@ def runDep():
     dep = gui.Tk()
     dep.geometry('400x500')
     dep.title('Deposit Cash')
-    dep.columnconfigure(0, weight=1)
+
 
     ###---Deposit---###
     title = gui.Label(dep,
-                      text='Check Balance',
+                      text='Deposit',
                       font=('Poppins', 28, 'bold'),
                       fg='#0ec93a',
                       pady=20
@@ -28,7 +28,7 @@ def runDep():
 
     backBtn = gui.Button(dep,
                          text='Go Back',
-                         command= bank.run(),
+
                          relief='flat',
                          bg='#0ec93a',
                          font=('Poppins', 15, 'bold'),
@@ -38,7 +38,27 @@ def runDep():
                          activeforeground='#0ec93a'
                          )
 
+    hundred = gui.Button(dep,
+                         text='100$',
+                         relief='flat',
+                         bg='#0ec93a',
+                         font=('Poppins', 15, 'bold'),
+                         width=13,
+                         fg='white',
+                         activebackground='white',
+                         activeforeground='#0ec93a'
+                         )
 
+    thousand = gui.Button(dep,
+                         text='1000$',
+                         relief='flat',
+                         bg='#0ec93a',
+                         font=('Poppins', 15, 'bold'),
+                         width=13,
+                         fg='white',
+                         activebackground='white',
+                         activeforeground='#0ec93a'
+                         )
 
     spacing1 = gui.Label(dep,
                          text="",
@@ -53,8 +73,10 @@ def runDep():
     title.grid(row=0, column=0)
     balance.grid(row=1, column=0)
     spacing1.grid(row=2, column=0)
-    backBtn.grid(row=3, column=0)
-    spacing2.grid(row=4, column=0)
+    hundred.grid(row=3, column=0)
+    thousand.grid(row=3, column=1)
+    backBtn.grid(row=4, column=0)
+
     dep.mainloop()
 
 runDep()
