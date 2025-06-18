@@ -31,7 +31,7 @@ def run():
 
     deposit = gui.Button(new,
                           text='Deposit',
-                          command= depositBank.runDep,
+                          command= depositBank.runDP,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),

@@ -1,8 +1,7 @@
 import tkinter as gui
 from Account import accDetails
-import bank
 
-def runDep():
+def runDP():
     dep = gui.Tk()
     dep.geometry('400x500')
     dep.title('Deposit Cash')
@@ -28,7 +27,6 @@ def runDep():
 
     backBtn = gui.Button(dep,
                          text='Go Back',
-
                          relief='flat',
                          bg='#0ec93a',
                          font=('Poppins', 15, 'bold'),
@@ -74,8 +72,8 @@ def runDep():
     balance.grid(row=1, column=0)
     spacing1.grid(row=2, column=0)
     hundred.grid(row=3, column=0)
-    thousand.grid(row=3, column=1)
+    thousand.grid(row=3, column=2)
     backBtn.grid(row=4, column=0)
-
     dep.mainloop()
 
+runDP()
