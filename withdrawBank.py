@@ -8,13 +8,13 @@ def runWB():
 
     dep = gui.Tk()
     dep.geometry('400x500')
-    dep.title('Deposit Cash')
+    dep.title('Withdraw Cash')
 
 
 
     ###---Deposit---###
     title = gui.Label(dep,
-                      text='Deposit',
+                      text='Withdraw',
                       font=('Poppins', 28, 'bold'),
                       fg='#0ec93a',
                       pady=20

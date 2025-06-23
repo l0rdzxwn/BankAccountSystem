@@ -4,8 +4,6 @@ import Account
 
 
 def runDP():
-
-
     dep = gui.Tk()
     dep.geometry('400x500')
     dep.title('Deposit Cash')
