@@ -1,6 +1,8 @@
 import tkinter as gui
 import checkBal
 import depositBank
+import withdrawBank
+
 
 def run():
     new = gui.Tk()
@@ -43,6 +45,7 @@ def run():
 
     withdraw = gui.Button(new,
                           text='Withdraw',
+                          command=withdrawBank.runWB,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
@@ -69,5 +72,5 @@ def run():
     withdraw.grid(row=5,column=0)
     new.mainloop()
 
-run()
+
 

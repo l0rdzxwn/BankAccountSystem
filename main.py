@@ -20,7 +20,7 @@ def login():
     if accNum.get() or Pin.get():
         if accNum.get() == accDetails.BankAccNum and Pin.get() == accDetails.PIN:
             messagebox.showinfo('Login Successful',f'Welcome to your account, {accDetails.Name}!')
-            bank.run()
+            mainbank.run()
 
         else:
             messagebox.showerror('Error','Incorrect account number or pin')

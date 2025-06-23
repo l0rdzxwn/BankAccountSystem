@@ -3,7 +3,7 @@ import Account
 
 
 
-def runDP():
+def runWB():
 
 
     dep = gui.Tk()
@@ -99,4 +99,4 @@ def runDP():
     buttonFrm2.grid(row=4,column=0)
     dep.mainloop()
 
-runDP()
+
