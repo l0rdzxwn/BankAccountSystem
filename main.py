@@ -1,7 +1,7 @@
 from tkinter import messagebox
 import tkinter as gui
 from Account import accDetails
-import bank
+import mainbank
 
 root = gui.Tk()
 root.geometry("400x500")

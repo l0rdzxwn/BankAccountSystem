@@ -1,5 +1,7 @@
 import tkinter as gui
-from Account import accDetails
+import Account
+import mainbank
+
 
 def runDP():
     dep = gui.Tk()
@@ -17,7 +19,7 @@ def runDP():
                       )
 
     balance = gui.Label(dep,
-                        text=f'CASH                ${accDetails.balance}',
+                        text=f'CASH                ${Account.accDetails.balance}',
                         font=('Poppins', 25, 'bold'),
                         fg='white',
                         pady=25,
@@ -28,6 +30,7 @@ def runDP():
 
     backBtn = gui.Button(dep,
                          text='Go Back',
+                         command=mainbank.run,
                          relief='flat',
                          bg='#0ec93a',
                          font=('Poppins', 15, 'bold'),
@@ -41,6 +44,7 @@ def runDP():
 
     hundred = gui.Button(buttonFrm,
                          text='100$',
+
                          relief='flat',
                          bg='#0ec93a',
                          font=('Poppins', 15, 'bold'),
