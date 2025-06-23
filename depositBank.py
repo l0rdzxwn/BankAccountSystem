@@ -7,6 +7,7 @@ def runDP():
     dep.title('Deposit Cash')
 
 
+
     ###---Deposit---###
     title = gui.Label(dep,
                       text='Deposit',
@@ -35,8 +36,10 @@ def runDP():
                          activebackground='white',
                          activeforeground='#0ec93a'
                          )
+    buttonFrm = gui.Frame(dep, bg='white')
+    buttonFrm2 = gui.Frame(dep, bg='white',pady=10)
 
-    hundred = gui.Button(dep,
+    hundred = gui.Button(buttonFrm,
                          text='100$',
                          relief='flat',
                          bg='#0ec93a',
@@ -46,8 +49,8 @@ def runDP():
                          activebackground='white',
                          activeforeground='#0ec93a'
                          )
-
-    thousand = gui.Button(dep,
+    hundred.pack(side='left', padx=2)
+    thousand = gui.Button(buttonFrm,
                          text='1000$',
                          relief='flat',
                          bg='#0ec93a',
@@ -57,6 +60,31 @@ def runDP():
                          activebackground='white',
                          activeforeground='#0ec93a'
                          )
+    thousand.pack(side='right',padx=2)
+
+    tenThs = gui.Button(buttonFrm2,
+                            text='10000$',
+                            relief='flat',
+                            bg='#0ec93a',
+                            font=('Poppins', 15, 'bold'),
+                            width=13,
+                            fg='white',
+                            activebackground='white',
+                            activeforeground='#0ec93a'
+                            )
+    tenThs.pack(side="left", padx=2)
+
+    hundredThs = gui.Button(buttonFrm2,
+                          text='100000$',
+                          relief='flat',
+                          bg='#0ec93a',
+                          font=('Poppins', 15, 'bold'),
+                          width=13,
+                          fg='white',
+                          activebackground='white',
+                          activeforeground='#0ec93a'
+                          )
+    hundredThs.pack(side="right", padx=2)
 
     spacing1 = gui.Label(dep,
                          text="",
@@ -71,9 +99,9 @@ def runDP():
     title.grid(row=0, column=0)
     balance.grid(row=1, column=0)
     spacing1.grid(row=2, column=0)
-    hundred.grid(row=3, column=0)
-    thousand.grid(row=3, column=2)
-    backBtn.grid(row=4, column=0)
+    buttonFrm.grid(row=3,column=0)
+    buttonFrm2.grid(row=4,column=0)
+    backBtn.grid(row=5, column=0)
     dep.mainloop()
 
 runDP()
