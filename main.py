@@ -1,7 +1,12 @@
 from tkinter import messagebox
 import tkinter as gui
+import mysql.connector
 from Account import accDetails
 import mainbank
+import sqlite3
+
+conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
+accessDB = conn.cursor()
 
 root = gui.Tk()
 root.geometry("400x500")
@@ -17,8 +22,12 @@ Pin = gui.StringVar()
 ###---Functions---###
 
 def login():
+
+    values = (accNum.get(), Pin.get())
+    accessDB.execute('SELECT * FROM accounts WHERE AccNum = %s AND PIN = %s', values)
+
     if accNum.get() or Pin.get():
-        if accNum.get() == accDetails.BankAccNum and Pin.get() == accDetails.PIN:
+        if accessDB.fetchone():
             messagebox.showinfo('Login Successful',f'Welcome to your account, {accDetails.Name}!')
             mainbank.run()
 
@@ -94,9 +103,6 @@ user.grid(row=2, column=0)
 pw.grid(row= 4, column=0)
 spacing.grid(row=5,column=0)
 login.grid(row=6,column=0)
-
-
-
-
-
 root.mainloop()
+
+

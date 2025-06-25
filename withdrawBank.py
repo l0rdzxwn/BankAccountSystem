@@ -5,7 +5,6 @@ import Account
 
 def runWB():
 
-
     dep = gui.Tk()
     dep.geometry('400x500')
     dep.title('Withdraw Cash')
