@@ -2,7 +2,7 @@ from tkinter import messagebox
 import tkinter as gui
 import mysql.connector
 from Account import accDetails
-import mainbank
+import fuckingBank
 import sqlite3
 
 
@@ -30,7 +30,7 @@ def login():
     if accNum.get() or Pin.get():
         if accessDB.fetchone():
             messagebox.showinfo('Login Successful',f'Welcome to your account, {accDetails.Name}!')
-            mainbank.runThisShit()
+            fuckingBank.runThisShit()
 
         else:
             messagebox.showerror('Error','Incorrect account number or pin')
