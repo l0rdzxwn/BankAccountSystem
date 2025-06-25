@@ -18,8 +18,6 @@ displayName = getDisplayName.fetchone()[0]
 
 def run():
 
-
-
     new = gui.Tk()
     new.geometry('400x500')
     new.title('Bank')

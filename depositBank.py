@@ -1,12 +1,13 @@
 import tkinter as gui
 import Account
 import mysql.connector
-import mainbank
+import main
 
 conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
 directToDB = conn.cursor()
-dn = mainbank.displayName
-
+values = (main.accNum.get(),main.Pin.get())
+directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s',values)
+balanceVal = directToDB.fetchone()[0]
 
 
 def runDP():
@@ -18,7 +19,7 @@ def runDP():
 
     ###---Deposit---###
     title = gui.Label(dep,
-                      text=f'Welcome, {dn}',
+                      text='Deposit',
                       font=('Poppins', 28, 'bold'),
                       fg='#0ec93a',
                       pady=20
