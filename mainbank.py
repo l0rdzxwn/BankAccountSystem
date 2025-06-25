@@ -16,7 +16,7 @@ values = (main.accNum.get(),main.Pin.get())
 getDisplayName.execute('SELECT Name FROM accounts WHERE AccNum = %s AND PIN = %s',values)
 displayName = getDisplayName.fetchone()[0]
 '''
-def run():
+def runThisShit():
 
     new = gui.Tk()
     new.geometry('400x500')
