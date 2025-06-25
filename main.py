@@ -5,6 +5,7 @@ from Account import accDetails
 import mainbank
 import sqlite3
 
+
 conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
 accessDB = conn.cursor()
 
