@@ -5,7 +5,7 @@ import mainbank
 
 conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
 directToDB = conn.cursor()
-
+dn = mainbank.displayName
 
 
 
@@ -18,7 +18,7 @@ def runDP():
 
     ###---Deposit---###
     title = gui.Label(dep,
-                      text=f'Welcome, {mainbank.displayName}',
+                      text=f'Welcome, {dn}',
                       font=('Poppins', 28, 'bold'),
                       fg='#0ec93a',
                       pady=20
