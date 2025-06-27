@@ -9,15 +9,17 @@ values = (main.accNum.get(),main.Pin.get())
 directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s',values)
 balanceVal = directToDB.fetchone()[0]
 
+balanceVar = gui.StringVar()
+balanceVar.set(balanceVal)
+
 def addHundred():
     finalValue = balanceVal + 100
     dbVal = (finalValue,main.accNum.get())
     directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s',dbVal)
     conn.commit()
-'''
     directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
     getLatest = directToDB.fetchone()[0]
-'''
+    balanceVar.set(getLatest)
 
 
 def runDP():
@@ -36,7 +38,7 @@ def runDP():
                       )
 
     balance = gui.Label(dep,
-                        text=f'CASH                ${balanceVal}',
+                        text=f'CASH                ${balanceVar}',
                         font=('Poppins', 25, 'bold'),
                         fg='white',
                         pady=25,
@@ -114,4 +116,4 @@ def runDP():
     buttonFrm2.grid(row=4,column=0)
     dep.mainloop()
 
-runDP()
+

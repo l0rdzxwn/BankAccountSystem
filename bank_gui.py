@@ -2,20 +2,20 @@ import tkinter as gui
 import checkBal
 import depositBank
 import withdrawBank
-import main
 import mysql.connector
-'''
+import main
 ###---Setting up Database Connection---###
 
 conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
 getDisplayName = conn.cursor()
 
+
 ###---Getting Display Name---###
 
-values = (main.accNum.get(),main.Pin.get())
-getDisplayName.execute('SELECT Name FROM accounts WHERE AccNum = %s AND PIN = %s',values)
+values = (main.accNum.get(), main.Pin.get())
+getDisplayName.execute('SELECT Name FROM accounts WHERE AccNum = %s AND PIN = %s', values)
 displayName = getDisplayName.fetchone()[0]
-'''
+
 def runThisShit():
 
     new = gui.Tk()
@@ -26,7 +26,7 @@ def runThisShit():
 ###---BankGUI---###
 
     title = gui.Label(new,
-                      text='Welcome, ',
+                      text=f'Welcome, {displayName}',
                       font=('Poppins', 28,'bold'),
                       fg='#0ec93a',
                       pady=47

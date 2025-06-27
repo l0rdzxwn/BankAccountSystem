@@ -2,18 +2,18 @@ from tkinter import messagebox
 import tkinter as gui
 import mysql.connector
 from Account import accDetails
-import fuckingBank
+import bank_gui
 import sqlite3
 
-
-conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
-accessDB = conn.cursor()
+print(dir(bank_gui))
 
 root = gui.Tk()
 root.geometry("400x500")
 
 root.columnconfigure(0, weight=1)
 
+conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
+accessDB = conn.cursor()
 
 ###---Variables---###
 
@@ -30,7 +30,7 @@ def login():
     if accNum.get() or Pin.get():
         if accessDB.fetchone():
             messagebox.showinfo('Login Successful',f'Welcome to your account, {accDetails.Name}!')
-            fuckingBank.runThisShit()
+            bank_gui.runThisShit()
 
         else:
             messagebox.showerror('Error','Incorrect account number or pin')
