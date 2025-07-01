@@ -2,32 +2,40 @@ import tkinter as gui
 import Account
 import mysql.connector
 import main
-
-conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
-directToDB = conn.cursor()
-values = (main.accNum.get(),main.Pin.get())
-directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s',values)
-balanceVal = directToDB.fetchone()[0]
-
-balanceVar = gui.StringVar()
-balanceVar.set(balanceVal)
-
-def addHundred():
-    finalValue = balanceVal + 100
-    dbVal = (finalValue,main.accNum.get())
-    directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s',dbVal)
-    conn.commit()
-    directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
-    getLatest = directToDB.fetchone()[0]
-    balanceVar.set(getLatest)
-
+import time
 
 def runDP():
     dep = gui.Tk()
     dep.geometry('400x500')
     dep.title('Deposit Cash')
 
+    conn = mysql.connector.connect(host='localhost', user='root', password='gRadingsystemDB2024', database='bankaccounts')
+    directToDB = conn.cursor()
+    values = (main.accNum.get(), main.Pin.get())
+    directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
+    balanceVal = directToDB.fetchone()[0]
 
+    def addHundred():
+        directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
+        latestValue = directToDB.fetchone()[0]
+
+        finalValue = latestValue + 100
+        dbVal = (finalValue, main.accNum.get())
+        directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s', dbVal)
+        conn.commit()
+        balance.config(text=f'CASH                ${finalValue}')
+        logLabel.config(text='Successfully added $100...')
+
+    def addThousand():
+        directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
+        latestValue = directToDB.fetchone()[0]
+
+        finalValue = latestValue + 1000
+        dbVal = (finalValue, main.accNum.get())
+        directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s', dbVal)
+        conn.commit()
+        balance.config(text=f'CASH                ${finalValue}')
+        logLabel.config(text='Successfully added $1000...')
 
     ###---Deposit---###
     title = gui.Label(dep,
@@ -38,7 +46,7 @@ def runDP():
                       )
 
     balance = gui.Label(dep,
-                        text=f'CASH                ${balanceVar}',
+                        text=f'CASH                ${balanceVal}',
                         font=('Poppins', 25, 'bold'),
                         fg='white',
                         pady=25,
@@ -48,8 +56,14 @@ def runDP():
                         )
 
 
-    buttonFrm = gui.Frame(dep, bg='white')
-    buttonFrm2 = gui.Frame(dep, bg='white',pady=10)
+
+    buttonFrm = gui.Frame(dep, bg= '#f0f0f0')
+    buttonFrm2 = gui.Frame(dep,pady=10, bg='#f0f0f0')
+
+
+
+
+
 
     hundred = gui.Button(buttonFrm,
                          text='100$',
@@ -63,8 +77,10 @@ def runDP():
                          activeforeground='#0ec93a'
                          )
     hundred.pack(side='left', padx=2)
+
     thousand = gui.Button(buttonFrm,
                          text='1000$',
+                          command=addThousand,
                          relief='flat',
                          bg='#0ec93a',
                          font=('Poppins', 15, 'bold'),
@@ -109,11 +125,23 @@ def runDP():
                          font=('Poppins', 2, 'bold')
                          )
 
+    ###---log Frame---###
+
+    buttonFrm3 = gui.Frame(dep, bg='#f0f0f0', pady=10)
+
+    logLabel = gui.Label(buttonFrm3,
+                         text= "",
+                         fg= '#0ec93a'
+                         )
+    logLabel.pack(side='left')
+
+
     title.grid(row=0, column=0)
     balance.grid(row=1, column=0)
     spacing1.grid(row=2, column=0)
     buttonFrm.grid(row=3,column=0)
     buttonFrm2.grid(row=4,column=0)
+    buttonFrm3.grid(row=5, column=0)
     dep.mainloop()
 
 
