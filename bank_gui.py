@@ -4,6 +4,7 @@ import depositBank
 import withdrawBank
 import mysql.connector
 import main
+
 ###---Setting up Database Connection---###
 
 conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')

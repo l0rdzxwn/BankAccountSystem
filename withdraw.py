@@ -4,10 +4,10 @@ import mysql.connector
 import main
 import time
 
-def runDP():
+def runWD():
     dep = gui.Tk()
     dep.geometry('400x500')
-    dep.title('Deposit Cash')
+    dep.title('Withdraw Cash')
 
     conn = mysql.connector.connect(host='localhost', user='root', password='gRadingsystemDB2024', database='bankaccounts')
     directToDB = conn.cursor()
@@ -30,34 +30,35 @@ def runDP():
         directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
         latestValue = directToDB.fetchone()[0]
 
-        finalValue = latestValue + 1000
+        finalValue = latestValue - 1000
         dbVal = (finalValue, main.accNum.get())
         directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s', dbVal)
         conn.commit()
         balance.config(text=f'CASH                ${finalValue}')
-        logLabel.config(text='Successfully added $1000...')
+        logLabel.config(text='Successfully withdrawn $1000...')
 
     def addTenThousand():
         directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
         latestValue = directToDB.fetchone()[0]
 
-        finalValue = latestValue + 10000
+        finalValue = latestValue - 10000
         dbVal = (finalValue, main.accNum.get())
         directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s', dbVal)
         conn.commit()
         balance.config(text=f'CASH                ${finalValue}')
-        logLabel.config(text='Successfully added $10000...')
+        logLabel.config(text='Successfully withdrawn $10,000...')
 
     def addHundredThousand():
         directToDB.execute('SELECT Balance FROM accounts WHERE AccNum = %s AND PIN = %s', values)
         latestValue = directToDB.fetchone()[0]
 
-        finalValue = latestValue + 1000
+        finalValue = latestValue - 1000
         dbVal = (finalValue, main.accNum.get())
         directToDB.execute('UPDATE accounts SET Balance = %s WHERE AccNum = %s', dbVal)
         conn.commit()
+
         balance.config(text=f'CASH                ${finalValue}')
-        logLabel.config(text='Successfully added $1000...')
+        logLabel.config(text='Successfully withdrawn $100,000...')
 
     ###---Deposit---###
     title = gui.Label(dep,
