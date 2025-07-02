@@ -165,4 +165,4 @@ def runWD():
     buttonFrm3.grid(row=5, column=0)
     dep.mainloop()
 
-
+runWD()

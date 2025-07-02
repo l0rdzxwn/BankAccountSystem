@@ -1,7 +1,7 @@
 import tkinter as gui
 import checkBal
 import depositBank
-import withdrawBank
+import withdraw_gui
 import mysql.connector
 import main
 
@@ -59,7 +59,7 @@ def runThisShit():
 
     withdraw = gui.Button(new,
                           text='Withdraw',
-                          command=withdrawBank.runWB,
+                          command=withdraw_gui.runWD,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
