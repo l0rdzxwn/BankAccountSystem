@@ -1,23 +1,24 @@
 import tkinter as gui
 import checkBal
+import mysql.connector
 import depositBank
 import withdraw_gui
-import mysql.connector
-import main
+
+def runThisShit(accNum, Pin):
 
 ###---Setting up Database Connection---###
 
-conn = mysql.connector.connect(host='localhost',user='root',password='gRadingsystemDB2024',database='bankaccounts')
-getDisplayName = conn.cursor()
-
+    conn = mysql.connector.connect(host='localhost', user='root', password='gRadingsystemDB2024',
+                                   database='bankaccounts')
+    getDisplayName = conn.cursor()
 
 ###---Getting Display Name---###
 
-values = (main.accNum.get(), main.Pin.get())
-getDisplayName.execute('SELECT Name FROM accounts WHERE AccNum = %s AND PIN = %s', values)
-displayName = getDisplayName.fetchone()[0]
+    values = (accNum.get(), Pin.get())
+    getDisplayName.execute('SELECT Name FROM accounts WHERE AccNum = %s AND PIN = %s', values)
+    displayName = getDisplayName.fetchone()[0]
 
-def runThisShit():
+###--- GUI ---###
 
     new = gui.Tk()
     new.geometry('400x500')
@@ -47,7 +48,7 @@ def runThisShit():
 
     deposit = gui.Button(new,
                           text='Deposit',
-                          command= depositBank.runDP,
+                          command=depositBank.runDP,
                           relief = 'flat',
                           bg='#0ec93a',
                           font=('Poppins', 15, 'bold'),
@@ -87,4 +88,13 @@ def runThisShit():
     new.mainloop()
 
 
+
+
+###--- Withdraw GUI ---###
+
+
+
+
+
+###--- Deposit GUI ---###
 

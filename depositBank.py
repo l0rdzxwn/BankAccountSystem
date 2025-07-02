@@ -1,8 +1,7 @@
-import tkinter as gui
-import Account
-import mysql.connector
 import main
-import time
+import mysql.connector
+import tkinter as gui
+
 
 def runDP():
     dep = gui.Tk()
