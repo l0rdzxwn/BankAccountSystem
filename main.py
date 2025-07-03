@@ -23,31 +23,18 @@ accessDB = conn.cursor()
 accNum = gui.StringVar()
 Pin = gui.StringVar()
 
-
-
-
-
-
 ###---Homepage---###
 
 def runThisShit(acc,pin):
-
-
-
-###---Getting Display Name---###
-
+    
     values = (acc, pin)
     accessDB.execute('SELECT Name FROM accounts WHERE AccNum = %s AND PIN = %s', values)
     displayName = accessDB.fetchone()[0]
-
-###--- GUI ---###
 
     new = gui.Toplevel()
     new.geometry('400x500')
     new.title('Bank')
     new.columnconfigure(0,weight=1)
-
-###---BankGUI---###
 
     title = gui.Label(new,
                       text=f'Welcome, {displayName}',
